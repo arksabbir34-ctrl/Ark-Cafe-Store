@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Menu, X, Coffee } from "lucide-react";
+import { Menu, X, Coffee, ShoppingCart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCart } from "@/context/CartContext";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { items } = useCart();
+  const itemCount = items.reduce((total, item) => total + item.quantity, 0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,6 +53,14 @@ export function Navbar() {
                 {link.name}
               </a>
             ))}
+            <div className="relative">
+              <ShoppingCart className={`h-6 w-6 cursor-pointer transition-colors ${isScrolled ? "text-foreground" : "text-white"} hover:text-accent`} data-testid="icon-shopping-cart" />
+              {itemCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-accent text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center" data-testid="text-cart-count">
+                  {itemCount}
+                </span>
+              )}
+            </div>
             <a
               href="#menu"
               className={`px-6 py-2.5 rounded-sm font-medium tracking-wider text-sm transition-all duration-300 ${
@@ -57,23 +68,35 @@ export function Navbar() {
                   ? "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg"
                   : "bg-white text-primary hover:bg-white/90"
               }`}
+              data-testid="button-order-now"
             >
               Order Now
             </a>
           </nav>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? (
-              <X className={isScrolled ? "text-foreground" : "text-white"} />
-            ) : (
-              <Menu className={isScrolled ? "text-foreground" : "text-white"} />
-            )}
-          </button>
+          {/* Mobile Menu Toggle & Cart */}
+          <div className="md:hidden flex items-center gap-4">
+            <div className="relative">
+              <ShoppingCart className={`h-6 w-6 cursor-pointer transition-colors ${isScrolled ? "text-foreground" : "text-white"} hover:text-accent`} data-testid="icon-shopping-cart-mobile" />
+              {itemCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-accent text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center" data-testid="text-cart-count-mobile">
+                  {itemCount}
+                </span>
+              )}
+            </div>
+            <button
+              className="md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+              data-testid="button-mobile-menu-toggle"
+            >
+              {mobileMenuOpen ? (
+                <X className={isScrolled ? "text-foreground" : "text-white"} />
+              ) : (
+                <Menu className={isScrolled ? "text-foreground" : "text-white"} />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 

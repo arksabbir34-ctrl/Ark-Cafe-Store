@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import { useProducts } from "@/hooks/use-products";
+import { useCart } from "@/context/CartContext";
 import { Coffee, AlertCircle } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export function Menu() {
   const { data: products, isLoading, isError } = useProducts();
+  const { addItem } = useCart();
+  const { toast } = useToast();
 
   const container = {
     hidden: { opacity: 0 },
@@ -99,7 +103,17 @@ export function Menu() {
                     {product.description}
                   </p>
                   
-                  <button className="w-full py-3 bg-secondary/50 text-foreground font-medium rounded-md hover:bg-primary hover:text-primary-foreground transition-colors duration-300">
+                  <button 
+                    onClick={() => {
+                      addItem(product);
+                      toast({
+                        title: "Added to Order",
+                        description: `${product.name} has been added to your order.`,
+                      });
+                    }}
+                    className="w-full py-3 bg-secondary/50 text-foreground font-medium rounded-md hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
+                    data-testid={`button-add-to-order-${product.id}`}
+                  >
                     Add to Order
                   </button>
                 </div>

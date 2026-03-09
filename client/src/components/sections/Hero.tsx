@@ -16,20 +16,10 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <span className="text-accent font-medium tracking-[0.2em] uppercase text-sm md:text-base mb-4 block">
-            Est. 2024
-          </span>
-        </motion.div>
-        
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white text-balance mb-6 max-w-4xl"
         >
           Artisanal Coffee & <br />
@@ -39,7 +29,7 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 font-light"
         >
           Experience the finest single-origin beans, expertly roasted and crafted with passion at ARK Cafe Store.
@@ -48,7 +38,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4"
         >
           <a

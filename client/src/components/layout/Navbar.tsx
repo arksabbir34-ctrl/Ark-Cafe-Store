@@ -53,14 +53,14 @@ export function Navbar() {
                 {link.name}
               </a>
             ))}
-            <div className="relative">
+            <Link href="/cart" className="relative group">
               <ShoppingCart className={`h-6 w-6 cursor-pointer transition-colors ${isScrolled ? "text-foreground" : "text-white"} hover:text-accent`} data-testid="icon-shopping-cart" />
               {itemCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-accent text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center" data-testid="text-cart-count">
                   {itemCount}
                 </span>
               )}
-            </div>
+            </Link>
             <a
               href="#menu"
               className={`px-6 py-2.5 rounded-sm font-medium tracking-wider text-sm transition-all duration-300 ${
@@ -76,14 +76,14 @@ export function Navbar() {
 
           {/* Mobile Menu Toggle & Cart */}
           <div className="md:hidden flex items-center gap-4">
-            <div className="relative">
+            <Link href="/cart" className="relative group">
               <ShoppingCart className={`h-6 w-6 cursor-pointer transition-colors ${isScrolled ? "text-foreground" : "text-white"} hover:text-accent`} data-testid="icon-shopping-cart-mobile" />
               {itemCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-accent text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center" data-testid="text-cart-count-mobile">
                   {itemCount}
                 </span>
               )}
-            </div>
+            </Link>
             <button
               className="md:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

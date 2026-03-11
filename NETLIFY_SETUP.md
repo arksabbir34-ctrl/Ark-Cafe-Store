@@ -65,27 +65,66 @@ Convert Express routes to Netlify Functions and redeploy. This requires:
 
 ## Environment Variables on Netlify
 
-**CRITICAL**: Set this in Netlify dashboard to connect frontend to backend:
+**CRITICAL**: Set this in Netlify dashboard to connect frontend to backend.
 
-1. Go to **Site Settings** → **Build & Deploy** → **Environment**
-2. Add this variable:
+### Method 1: Via Site Settings (Recommended)
 
+1. Open your site in **Netlify Dashboard**
+2. Click your **site name** to open site overview
+3. Click **Site Settings** (in the top navigation bar)
+4. In the left sidebar, click **Build & Deploy**
+5. Look for **Environment** section (may be labeled "Environment variables")
+6. Click the **Edit variables** or **Create a new variable** button
+7. Add a new variable:
+   - **Key**: `VITE_API_URL`
+   - **Value**: `https://your-backend-url.com`
+
+### Method 2: Via Deploy Settings (Alternative)
+
+1. Open **Netlify Dashboard** → Your site
+2. Click **Deploys** tab (top menu)
+3. Look for "Triggering" or "Deploy settings"
+4. Scroll to "Build environment variables"
+5. Click to add variable
+
+### Method 3: Fastest Method (Direct Link)
+
+Replace `YOUR-SITE-NAME` with your site name and visit directly:
 ```
-VITE_API_URL=https://your-backend-url.com
+https://app.netlify.com/sites/YOUR-SITE-NAME/configuration/env
 ```
 
-**Where to get your backend URL:**
-- If using Replit: `https://your-replit-project-url`
-- If using Railway: Your Railway domain URL
-- If using Heroku: Your Heroku app URL
-
-**Example:**
+For example, if your site is `arkcafestore`:
 ```
-VITE_API_URL=https://myproject.replit.dev
+https://app.netlify.com/sites/arkcafestore/configuration/env
 ```
 
-3. **Redeploy** on Netlify (git push or manual deploy)
-4. Test the menu - products should now load!
+### What to Add
+
+**Key:**
+```
+VITE_API_URL
+```
+
+**Value:** (Get this from your Replit webview URL)
+```
+https://your-project.replit.dev
+```
+
+**Example with real values:**
+```
+Key:   VITE_API_URL
+Value: https://my-ark-cafe.replit.dev
+```
+
+### 4. Save and Redeploy
+
+1. Click **Create variable** or **Save**
+2. Trigger a redeploy:
+   - Option A: Push a change to GitHub (auto-deploys)
+   - Option B: In Netlify dashboard, click **Deploys** → **Trigger deploy** → **Deploy site**
+3. Wait 1-2 minutes for deployment
+4. Visit your site and scroll to menu - products should appear! ✅
 
 ### For the Replit Backend:
 

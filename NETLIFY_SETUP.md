@@ -59,18 +59,43 @@ Convert Express routes to Netlify Functions and redeploy. This requires:
 
 - ✅ Frontend: Builds to `dist/public`
 - ✅ SPA redirects: Configured in `netlify.toml`
-- ❌ Backend: Needs separate hosting (Railway, Heroku, etc.)
+- ❌ Backend: Needs separate hosting (Railway, Heroku, Replit, etc.)
 - ⚠️ Database: PostgreSQL must be accessible from both frontend and backend
+- ✅ CORS: Enabled in Express backend
 
-## Environment Variables
+## Environment Variables on Netlify
 
-Set these in Netlify dashboard > Site Settings > Build & Deploy > Environment:
+**CRITICAL**: Set this in Netlify dashboard to connect frontend to backend:
+
+1. Go to **Site Settings** → **Build & Deploy** → **Environment**
+2. Add this variable:
 
 ```
-DATABASE_URL=your_postgresql_connection_string
-SESSION_SECRET=your_secret_key
 VITE_API_URL=https://your-backend-url.com
 ```
+
+**Where to get your backend URL:**
+- If using Replit: `https://your-replit-project-url`
+- If using Railway: Your Railway domain URL
+- If using Heroku: Your Heroku app URL
+
+**Example:**
+```
+VITE_API_URL=https://myproject.replit.dev
+```
+
+3. **Redeploy** on Netlify (git push or manual deploy)
+4. Test the menu - products should now load!
+
+### For the Replit Backend:
+
+Set this environment variable in Replit to allow Netlify:
+
+```
+FRONTEND_URL=https://your-site.netlify.app
+```
+
+This enables CORS so the frontend can call the API.
 
 ## Troubleshooting
 

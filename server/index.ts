@@ -22,6 +22,30 @@ app.use(
 
 app.use(express.urlencoded({ extended: false }));
 
+// Enable CORS for frontend
+app.use((req, res, next) => {
+  const allowedOrigins = [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "http://localhost:5000",
+    process.env.FRONTEND_URL,
+  ].filter(Boolean);
+
+  const origin = req.headers.origin;
+  if (!origin || allowedOrigins.includes(origin)) {
+    res.header("Access-Control-Allow-Origin", origin || "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true");
+  }
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+
+  next();
+});
+
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
     hour: "numeric",

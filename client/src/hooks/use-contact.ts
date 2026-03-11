@@ -4,11 +4,14 @@ import type { z } from "zod";
 
 type ContactInput = z.infer<typeof api.contact.submit.input>;
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+
 export function useSubmitContact() {
   return useMutation({
     mutationFn: async (data: ContactInput) => {
       const validated = api.contact.submit.input.parse(data);
-      const res = await fetch(api.contact.submit.path, {
+      const url = API_BASE_URL + api.contact.submit.path;
+      const res = await fetch(url, {
         method: api.contact.submit.method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(validated),

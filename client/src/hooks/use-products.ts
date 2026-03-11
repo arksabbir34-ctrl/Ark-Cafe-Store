@@ -1,11 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@shared/routes";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+
 export function useProducts() {
   return useQuery({
     queryKey: [api.products.list.path],
     queryFn: async () => {
-      const res = await fetch(api.products.list.path, {
+      const url = API_BASE_URL + api.products.list.path;
+      const res = await fetch(url, {
         headers: { "Accept": "application/json" },
       });
       if (!res.ok) {

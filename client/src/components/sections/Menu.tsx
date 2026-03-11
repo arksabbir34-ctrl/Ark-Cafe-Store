@@ -58,8 +58,19 @@ export function Menu() {
         ) : isError || !products || products.length === 0 ? (
           <div className="text-center py-20 bg-card rounded-2xl border border-border border-dashed">
             <Coffee className="mx-auto h-12 w-12 text-muted-foreground/50 mb-4" />
-            <h3 className="text-xl font-display font-medium text-foreground mb-2">Menu Updating</h3>
-            <p className="text-muted-foreground">Our baristas are crafting new seasonal specials. Please check back soon.</p>
+            <h3 className="text-xl font-display font-medium text-foreground mb-2">
+              {isError ? "Menu Not Available" : "Menu Updating"}
+            </h3>
+            <p className="text-muted-foreground mb-4">
+              {isError 
+                ? "Unable to load menu. Please check browser console for details." 
+                : "Our baristas are crafting new seasonal specials. Please check back soon."}
+            </p>
+            {isError && (
+              <p className="text-xs text-destructive/70 font-mono">
+                If deployed on Netlify, set VITE_API_URL environment variable to your backend URL
+              </p>
+            )}
           </div>
         ) : (
           <motion.div 

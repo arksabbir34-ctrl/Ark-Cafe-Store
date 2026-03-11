@@ -8,12 +8,20 @@ export function useProducts() {
     queryKey: [api.products.list.path],
     queryFn: async () => {
       const url = API_BASE_URL + api.products.list.path;
+      console.log("Fetching products from:", url);
+      
       const res = await fetch(url, {
         headers: { "Accept": "application/json" },
       });
+      
       if (!res.ok) {
-        throw new Error("Failed to fetch products");
+        console.error("Failed to fetch products. Status:", res.status);
+        console.error("API Base URL:", API_BASE_URL);
+        console.error("Full URL:", url);
+        console.error("Check that VITE_API_URL is set correctly in Netlify environment variables");
+        throw new Error(`Failed to fetch products: ${res.status}`);
       }
+      
       const data = await res.json();
       return api.products.list.responses[200].parse(data);
     },

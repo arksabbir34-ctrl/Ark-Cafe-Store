@@ -56,6 +56,13 @@ async function seedDatabase() {
       category: "Pastries",
       imageUrl: "/images/pumpkin-spice-pillow.jpg",
     });
+    await storage.createProduct({
+      name: "Celebration Cookie Slice",
+      description: "A massive, deep-dish chocolate chip cookie baked to soft, buttery perfection. Each slice is generously edged with our signature chocolate fudge buttercream and topped with a festive explosion of rainbow sprinkles. The ultimate treat for birthdays, milestones, or just because! Also available as a full 9\" cake with custom messages (requires 24h notice).",
+      price: "5.50",
+      category: "Pastries",
+      imageUrl: "/images/celebration-cookie-slice.jpg",
+    });
   }
 }
 

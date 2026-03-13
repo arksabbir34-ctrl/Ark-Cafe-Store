@@ -49,6 +49,13 @@ async function seedDatabase() {
       category: "Pastries",
       imageUrl: "/images/hazelnut-thumbprint.jpg",
     });
+    await storage.createProduct({
+      name: "Glazed Pumpkin Spice Pillows",
+      description: "Soft, cake-like delights infused with real pumpkin purée and a proprietary blend of warm spices including cinnamon, nutmeg, and cloves. Each one is finished with a generous hand-poured vanilla bean glaze that drips perfectly down the sides. Best enjoyed alongside a warm Chai Latte or Pumpkin Spice Coffee.",
+      price: "3.75",
+      category: "Pastries",
+      imageUrl: "/images/pumpkin-spice-pillow.jpg",
+    });
   }
 }
 

@@ -35,6 +35,13 @@ async function seedDatabase() {
       category: "Decaf",
       imageUrl: "https://images.unsplash.com/photo-1524350876685-274059332603?q=80&w=600&auto=format&fit=crop",
     });
+    await storage.createProduct({
+      name: "Signature Choc-Chunk Cookie",
+      description: "Baked fresh daily with a perfectly crisp outer edge and soft, chewy center. Loaded with premium dark and milk chocolate morsels. Made with real butter, organic brown sugar, and high-quality cocoa. Small-batch baked every morning. Best enjoyed warm!",
+      price: "3.50",
+      category: "Pastries",
+      imageUrl: "/images/choc-chunk-cookie.jpg",
+    });
   }
 }
 

@@ -42,6 +42,13 @@ async function seedDatabase() {
       category: "Pastries",
       imageUrl: "/images/choc-chunk-cookie.jpg",
     });
+    await storage.createProduct({
+      name: "Dark Chocolate & Toasted Hazelnut Thumbprints",
+      description: "A sophisticated twist on a classic. Crafted with premium Dutch-processed cocoa for a rich, brownie-like texture. Each cookie is rolled in crushed, roasted hazelnuts for a satisfying crunch and finished with a silky, hand-piped dark chocolate ganache center. The ultimate coffee companion — designed specifically to pair with espresso and bold roasts.",
+      price: "4.25",
+      category: "Pastries",
+      imageUrl: "/images/hazelnut-thumbprint.jpg",
+    });
   }
 }
 

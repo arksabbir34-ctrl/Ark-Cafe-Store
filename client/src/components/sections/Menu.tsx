@@ -110,7 +110,7 @@ export function Menu() {
                     </span>
                   </div>
                   
-                  <p className="text-muted-foreground text-sm flex-1 font-light leading-relaxed mb-6">
+                  <p className="text-muted-foreground text-sm flex-1 font-light leading-relaxed mb-6 line-clamp-2">
                     {product.description}
                   </p>
                   

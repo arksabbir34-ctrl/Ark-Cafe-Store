@@ -63,6 +63,13 @@ async function seedDatabase() {
       category: "Pastries",
       imageUrl: "/images/celebration-cookie-slice.jpg",
     });
+    await storage.createProduct({
+      name: "Midnight Ark Drip Cake",
+      description: "The crown jewel of our bakery. Three layers of moist, dark chocolate sponge filled with velvety cocoa buttercream, finished with a hand-poured silky chocolate ganache drip and crowned with signature fudge brownie chunks and elegant buttercream rosettes. Rich, decadent, and undeniably impressive. Perfect for birthdays, anniversaries, or serious chocolate lovers. Please order at least 48 hours in advance.",
+      price: "45.00",
+      category: "Cakes",
+      imageUrl: "/images/midnight-ark-drip-cake.jpg",
+    });
   }
 }
 

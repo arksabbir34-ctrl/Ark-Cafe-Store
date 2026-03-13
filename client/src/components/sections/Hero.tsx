@@ -32,7 +32,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 font-light"
         >
-          Experience the finest single-origin beans, expertly roasted and crafted with passion at ARK Cafe Store.
+          Experience the finest single-origin beans, expertly roasted and crafted with passion at Ark Cafe & Bakehouse.
         </motion.p>
         
         <motion.div

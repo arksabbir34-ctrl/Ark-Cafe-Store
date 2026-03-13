@@ -36,7 +36,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-2 group">
             <Coffee className={`h-8 w-8 transition-colors ${isScrolled ? "text-primary" : "text-white group-hover:text-accent"}`} />
             <span className={`text-2xl font-bold tracking-widest font-display uppercase ${isScrolled ? "text-foreground" : "text-white"}`}>
-              ARK Cafe
+              Ark Cafe & Bakehouse
             </span>
           </Link>
 

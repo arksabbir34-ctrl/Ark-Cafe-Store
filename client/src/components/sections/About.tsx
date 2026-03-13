@@ -51,7 +51,7 @@ export function About() {
             
             <div className="space-y-6 text-muted-foreground text-lg font-light leading-relaxed">
               <p>
-                Founded by Abdur Rahim Khan, ARK Cafe Store is more than just a destination for coffee—it is an homage to the timeless tradition of brewing perfection.
+                Founded by Abdur Rahim Khan, Ark Cafe & Bakehouse is more than just a destination for coffee—it is an homage to the timeless tradition of brewing perfection.
               </p>
               <p>
                 We source our beans directly from sustainable farms across the globe, ensuring that every cup not only delivers an exceptional flavor profile but also supports the communities that cultivate them.

@@ -11,7 +11,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2 mb-6 group inline-flex">
               <Coffee className="h-8 w-8 text-accent" />
               <span className="text-2xl font-bold tracking-widest font-display uppercase text-white">
-                ARK Cafe
+                Ark Cafe & Bakehouse
               </span>
             </Link>
             <p className="text-primary-foreground/70 font-light max-w-sm leading-relaxed mb-6">
@@ -52,7 +52,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-primary-foreground/50 text-sm font-light">
-          <p>&copy; {new Date().getFullYear()} ARK Cafe Store. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Ark Cafe & Bakehouse. All rights reserved.</p>
           <div className="space-x-4 mt-4 md:mt-0">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
